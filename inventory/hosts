@@ -1,3 +1,6 @@
+[all:vars]
+ansible_user=kulkarav
+
 192.168.1.2
 
 [dev]
