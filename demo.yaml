@@ -1,9 +1,0 @@
----
-
-- hosts: apps_server
-  tasks:
-          - name: copy file from master to target node 
-            ansible.builtin.copy:
-                 src: demo.txt
-                 dest: "{{ dest_location }}"
-
