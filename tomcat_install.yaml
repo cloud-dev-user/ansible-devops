@@ -1,5 +1,5 @@
 ---
 
-- hosts: dev 
+- hosts: "{{ host_group }}" 
   roles: 
         - roles/tomcat-install
