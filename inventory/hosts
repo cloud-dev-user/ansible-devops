@@ -7,3 +7,10 @@
 apps1.learnwell.com
 apps2.learnwell.com
 
+[test]
+apps1.learnwell.com
+
+[uat]
+192.168.1.2
+
+
