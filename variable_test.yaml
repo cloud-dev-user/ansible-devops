@@ -1,0 +1,17 @@
+---
+
+- hosts: "{{ host_group }}"
+  tasks:
+           - name: echo something in target node 
+             shell: " echo {{ apps_name }} "
+             register: results
+
+           - debug: 
+                 var: results
+
+           - name: show variables in target node
+             shell: " echo {{ apps_name }}  {{ apps_base}} {{ apps_server}} {{ admin_user }} "
+             register: demo 
+
+           - debug:
+                   var: demo

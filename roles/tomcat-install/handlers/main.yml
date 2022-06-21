@@ -1,0 +1,7 @@
+---
+# handlers file for tomcat-install
+
+- name: restart tomcat
+  shell: " ./catalina.sh start" 
+  args: 
+      chdir: "{{ tomcat_home }}{{ tomcat_version }}/bin"

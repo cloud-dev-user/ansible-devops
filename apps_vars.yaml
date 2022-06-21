@@ -1,0 +1,7 @@
+---
+
+apps_name: "eagle_one"
+apps_server: "tomcat"
+admin_user: "tomcati_admin"
+apps_base: "/opt/tomcat" 
+apps_home: "{{ apps_base }}/tomcat_home"

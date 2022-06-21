@@ -1,0 +1,42 @@
+---
+# tasks file for tomcat-install
+
+- name: Check if dependencies are present 
+  become: true 
+  yum:
+          name: "{{ jdk_version }}"
+          state: present 
+
+- name: Check if tomcat is running or not 
+  shell: 
+       cmd: ps -aef | grep tomcat | grep -v grep  
+  register: results
+  failed_when: results.rc == 0
+  
+- name: Check if tomcat folder is present or create it 
+  ansible.builtin.file:
+      path: "{{ tomcat_home }}"
+      state: directory
+      mode: '0755'
+
+      #- name: Copy tomcat tar file to target location 
+      #ansible.builtin.copy:
+      # src: "{{ tomcat_tar_file }}"
+      #dest: "{{ tomcat_base }}"
+      #owner: "{{tomcat_user}}"
+      #group: "{{tomcat_group}}"
+      #mode: '0644'
+
+- name: Extract tomcat tar file to tomcat base 
+  ansible.builtin.unarchive:
+    src: "{{ tomcat_tar_file }}"
+    dest: "{{ tomcat_home }}"
+    owner: "{{tomcat_user}}"
+    group: "{{tomcat_group}}"
+    mode: '0755'
+
+- name: create tomcat installation confirmation file
+  shell: " echo 'tomcat is installed ' > /tmp/log-tomcat "
+  notify:
+          - "restart tomcat"
+

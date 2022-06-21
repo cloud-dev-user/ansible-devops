@@ -1,0 +1,15 @@
+---
+
+- hosts: dev 
+  tasks:
+          - name: Check service tomcat is already running or not
+            ansible.builtin.shell: " ps -aef | grep tomcat " 
+            register: results
+
+          - name: verify tomcat is running or not 
+            debug: 
+                   var: results
+
+          - name: check if port 8080 is available
+            debug:
+                    msg: "{{ ansible_facts.tcp_listen  | map(attribute='port') | sort | list }}"

@@ -1,0 +1,10 @@
+---
+# defaults file for tomcat-install
+
+tomcat_base: /opt/tomcat9
+tomcat_home: "{{ tomcat_base }}/tomcat/"
+tomcat_version: "apache-tomcat-9.0.64"
+jdk_version: "java-11"
+tomcat_tar_file: "{{ tomcat_version }}.tar.gz"
+tomcat_user: kulkarav
+tomcat_group: "{{ tomcat_user }}"
