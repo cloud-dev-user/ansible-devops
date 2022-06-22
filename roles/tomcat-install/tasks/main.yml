@@ -37,6 +37,10 @@
 
 - name: create tomcat installation confirmation file
   shell: " echo 'tomcat is installed ' > /tmp/log-tomcat "
-  notify:
-          - "restart tomcat"
+  #  notify:
+  #       - "restart tomcat"
 
+- name: Start tomcat 
+  shell: " ./catalina.sh start"
+  args: 
+      chdir: "{{ tomcat_home }}{{ tomcat_tar_file }}/bin"
