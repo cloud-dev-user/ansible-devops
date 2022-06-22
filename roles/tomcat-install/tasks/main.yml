@@ -43,4 +43,4 @@
 - name: Start tomcat 
   shell: " ./catalina.sh start"
   args: 
-      chdir: "{{ tomcat_home }}{{ tomcat_tar_file }}/bin"
+      chdir: "{{ tomcat_home }}{{ tomcat_version  }}/bin"
