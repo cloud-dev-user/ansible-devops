@@ -1,6 +1,5 @@
 pipeline {
   agent any
-  parameters { choice(name: 'ansible_env', choices: ['dev', 'test', 'uat'], description: 'this is environment to provided for ansible playbook variable: host_group') }
   stages {
     stage('install tomcat ') {
       steps {
@@ -8,5 +7,16 @@ pipeline {
       }
     }
 
+    stage('echo ') {
+      steps {
+        sh '''echo 
+
+"hello world " '''
+      }
+    }
+
+  }
+  parameters {
+    choice(name: 'ansible_env', choices: ['dev', 'test', 'uat'], description: 'this is environment to provided for ansible playbook variable: host_group')
   }
 }
